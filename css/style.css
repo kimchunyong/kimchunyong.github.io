@@ -56,7 +56,7 @@ body {
 .content .fake-link {
   text-decoration: none;
   transition: color 0.15s ease-in;
-  color: #f00;
+  color: #29c6cd;
 }
 .content a:hover,
 .content .fake-link:hover {
