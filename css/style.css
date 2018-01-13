@@ -6,7 +6,7 @@ body {
   height: 40vh;
 }
 .bg-1 {
-  background: $gradient-color-3;
+  background: #000;
 }
 .pab-100px {
   padding-bottom: 100px;
