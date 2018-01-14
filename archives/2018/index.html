@@ -68,6 +68,20 @@
 
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        function Wheight(){
+          console.log(222);
+          var winHeight = $(window).height;
+            $(".mv5.mv6-l").css({
+              height:winHeight
+            })
+        }
+        $(window).resize(function(){
+          Wheight();
+        })
+      })
+    </script>
 
 </head>
 
@@ -133,19 +147,6 @@
     <div class="content">
         <div class="mw8 center">
             
-                <a href="/kimchunyong.github.io/2018/01/11/javascript/hello-world/">
-    <div class="dt w-100 hover-border-main-color pointer pa3 border-color bl mv3">
-        <div class="dtc v-mid w-20 black-50">
-            
-                <span class="f4 fw3 lh-copy">Jan 2018</span> 
-            
-        </div>
-        <div class="dtc v-mid w-80 black-70">
-            <span class="f4 fw3 lh-copy">Hello World<span>
-        </div>
-    </div>
-</a>
-            
                 <a href="/kimchunyong.github.io/2018/01/13/javascript/null-과-undefined/">
     <div class="dt w-100 hover-border-main-color pointer pa3 border-color bl mv3">
         <div class="dtc v-mid w-20 black-50">
@@ -155,6 +156,19 @@
         </div>
         <div class="dtc v-mid w-80 black-70">
             <span class="f4 fw3 lh-copy">null 과 undefined<span>
+        </div>
+    </div>
+</a>
+            
+                <a href="/kimchunyong.github.io/2018/01/11/javascript/hello-world/">
+    <div class="dt w-100 hover-border-main-color pointer pa3 border-color bl mv3">
+        <div class="dtc v-mid w-20 black-50">
+            
+                <span class="f4 fw3 lh-copy">Jan 2018</span> 
+            
+        </div>
+        <div class="dtc v-mid w-80 black-70">
+            <span class="f4 fw3 lh-copy">Hello World<span>
         </div>
     </div>
 </a>
@@ -229,20 +243,7 @@
         </div>
     </div>
 
-    <script>
-      $(document).ready(function(){
-        function Wheight(){
-          console.log(222);
-          var winHeight = $(window).height;
-            $(".mv5.mv6-l").css({
-              height:winHeight
-            })
-        }
-        $(window).resize(function(){
-          Wheight();
-        })
-      })
-    </script>
+    
 
 
 <!-- After Footer -->

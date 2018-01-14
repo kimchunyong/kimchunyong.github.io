@@ -68,6 +68,20 @@
 
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        function Wheight(){
+          console.log(222);
+          var winHeight = $(window).height;
+            $(".mv5.mv6-l").css({
+              height:winHeight
+            })
+        }
+        $(window).resize(function(){
+          Wheight();
+        })
+      })
+    </script>
 
 </head>
 
@@ -184,7 +198,7 @@
 
                     <!-- Widget 3: Recent Posts -->
                     <div class="mt5 tc tl-l">
-    <h3>Récemment</h3>
+    <h3>Recent Posts</h3>
     
         <p>
             <a href="/kimchunyong.github.io/2018/01/13/javascript/null-과-undefined/">null 과 undefined</a>
@@ -268,20 +282,7 @@
         </div>
     </div>
 
-    <script>
-      $(document).ready(function(){
-        function Wheight(){
-          console.log(222);
-          var winHeight = $(window).height;
-            $(".mv5.mv6-l").css({
-              height:winHeight
-            })
-        }
-        $(window).resize(function(){
-          Wheight();
-        })
-      })
-    </script>
+    
 
 
 <!-- After Footer -->

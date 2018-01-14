@@ -68,6 +68,20 @@
 
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        function Wheight(){
+          console.log(222);
+          var winHeight = $(window).height;
+            $(".mv5.mv6-l").css({
+              height:winHeight
+            })
+        }
+        $(window).resize(function(){
+          Wheight();
+        })
+      })
+    </script>
 
 </head>
 
@@ -240,20 +254,7 @@
         </div>
     </div>
 
-    <script>
-      $(document).ready(function(){
-        function Wheight(){
-          console.log(222);
-          var winHeight = $(window).height;
-            $(".mv5.mv6-l").css({
-              height:winHeight
-            })
-        }
-        $(window).resize(function(){
-          Wheight();
-        })
-      })
-    </script>
+    
 
 
 <!-- After Footer -->
