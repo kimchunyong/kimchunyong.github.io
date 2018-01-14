@@ -287,6 +287,21 @@
         </div>
     </div>
 
+    <script>
+      $(document).ready(function(){
+        function Wheight(){
+          var winHeight = $(window).height;
+            $(".text-light+.mv6-l").css({
+              height:winHeight
+            })
+        }
+        $(window).resize(function(){
+          Wheight();
+        })
+      })
+    </script>
+
+
 <!-- After Footer -->
 <!-- Disqus Comments -->
 
