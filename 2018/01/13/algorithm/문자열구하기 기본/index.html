@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="깊은복사,옅은복사"/>
+        <meta property="og:title" content="문자열구하기 기본"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>깊은복사,옅은복사 - Codeval의 프로그래밍</title>
+    <title>문자열구하기 기본 - Codeval의 프로그래밍</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -114,8 +114,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">깊은복사,옅은복사</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-17</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">문자열구하기 기본</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-13</p>
         </div>
     </div>
 
@@ -136,26 +136,25 @@
                     
                         <div class="tags-container-vertical">
                             <div class="tags-sub-container">
-                                <a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/javascript/">#javascript</a>
+                                <a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/algorithm/">#algorithm</a>
                             </div>
                         </div>
                     
 
                     <!-- Main Post Content -->
-                    <h1 id="javascript-얕은복사-깊은복사"><a href="#javascript-얕은복사-깊은복사" class="headerlink" title="javascript 얕은복사,깊은복사"></a>javascript 얕은복사,깊은복사</h1><p>문자열, 숫자, 불린을 제외한 객체는 다른 변수에 대입할 때 값을 복사하는 게 아니라 참조(메모리의 주소)를 복사합니다.</p>
-<h2 id="문자열-숫자-불린-같은-경우-deep-copy"><a href="#문자열-숫자-불린-같은-경우-deep-copy" class="headerlink" title="문자열, 숫자, 불린 같은 경우 (deep copy)"></a>문자열, 숫자, 불린 같은 경우 (deep copy)</h2><p><strong>예제코드</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> string = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">var</span> copy = string;</span><br><span class="line"><span class="built_in">console</span>.log(copy); <span class="comment">// 'hello'</span></span><br><span class="line">copy = <span class="string">'hi'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(string); <span class="comment">// 'hello'</span></span><br></pre></td></tr></table></figure>
-<h2 id="배열-일반-객체-함수-shallow-copy"><a href="#배열-일반-객체-함수-shallow-copy" class="headerlink" title="배열, 일반 객체, 함수 (shallow copy)"></a>배열, 일반 객체, 함수 (shallow copy)</h2><p>변수는 여러개 일수있지만 가르키는 주소는 한개.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> shallow = array;</span><br><span class="line">shallow[<span class="number">0</span>] = <span class="string">'d'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// ['d', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
-<p>배열을 깊은복사를 하기위해선 call함수를 사용<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">var</span> deep = <span class="built_in">Array</span>.prototype.slice.call(array);</span><br><span class="line">deep[<span class="number">0</span>] = <span class="string">'d'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// ['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure></p>
-<p>일반객체를 깊은복사를 하기위해선<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyObj</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> copy = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(attr)) &#123;</span><br><span class="line">      copy[attr] = copyObj(obj[attr]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = copyObj(obj);</span><br><span class="line">obj2.a = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.a); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
-<p>함수를 깊은복사할땐 bind함수를 사용<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">'hi'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">func2 = func.bind(<span class="keyword">this</span>);</span><br><span class="line">func2(); <span class="comment">// 'hi'</span></span><br></pre></td></tr></table></figure></p>
+                    <h1 id="문자열구하기-기본"><a href="#문자열구하기-기본" class="headerlink" title="문자열구하기 기본"></a>문자열구하기 기본</h1><p><strong>문제</strong></p>
+<p>alpha_string46함수는 문자열 s를 매개변수로 입력받습니다.<br>s의 길이가 4혹은 6이고, 숫자로만 구성되있는지 확인해주는 함수를 완성하세요.<br>예를들어 s가 a234이면 False를 리턴하고 1234라면 True를 리턴하면 됩니다</p>
+<p><strong>내가 푼 문제</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alpha_string46</span>(<span class="params">s</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="literal">true</span></span><br><span class="line">  <span class="comment">// 함수를 완성하세요</span></span><br><span class="line">  <span class="keyword">var</span> length = s.length;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(length === <span class="number">4</span> || length === <span class="number">6</span>)&#123;</span><br><span class="line">     <span class="keyword">if</span>(<span class="built_in">isFinite</span>(s)=== <span class="literal">false</span>)&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isFinite</span>(s)=== <span class="literal">true</span>)&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span></span><br><span class="line"><span class="built_in">console</span>.log( alpha_string46(<span class="string">"a234"</span>) );</span><br></pre></td></tr></table></figure>
+<p><strong>다른사람이 푼 문제</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alpha_string46</span>(<span class="params">s</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//var num = parseInt(s);</span></span><br><span class="line">  <span class="comment">// 함수를 완성하세요</span></span><br><span class="line">    <span class="keyword">return</span> ((s.length == <span class="number">4</span> || s.length == <span class="number">6</span>) &amp;&amp; <span class="built_in">isNaN</span>(s)==<span class="literal">false</span>) ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span></span><br><span class="line"><span class="built_in">console</span>.log( alpha_string46(<span class="string">"a234"</span>) );</span><br></pre></td></tr></table></figure>
+<p>삼항연산자를 사용해서 내가 푼것보다 깔끔하게 풀었다. 다음엔 조금더 코드의 가독성및 효율성에대해서 신경써야할듯.</p>
 
                     
                     <!-- Tags Bottom -->
                     
                         <div class="tags-container-bottom">
-                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/javascript/">#javascript</a>
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/algorithm/">#algorithm</a>
                         </div>
                     
 
@@ -193,7 +192,7 @@
     <h3>Categories</h3>
     
         <p>
-            <a href="/kimchunyong.github.io/categories/javascript/">javascript</a>
+            <a href="/kimchunyong.github.io/categories/algorithm/">algorithm</a>
         </p>
     
 </div>
