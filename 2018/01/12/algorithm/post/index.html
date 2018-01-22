@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="null 과 undefined"/>
+        <meta property="og:title" content="최대공약수와 최소공배수"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>null 과 undefined - Codeval의 프로그래밍</title>
+    <title>최대공약수와 최소공배수 - Codeval의 프로그래밍</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -114,8 +114,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">null 과 undefined</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-13</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">최대공약수와 최소공배수</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-12</p>
         </div>
     </div>
 
@@ -136,24 +136,24 @@
                     
                         <div class="tags-container-vertical">
                             <div class="tags-sub-container">
-                                <a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/javascript/">#javascript</a>
+                                <a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/algorithm/">#algorithm</a>
                             </div>
                         </div>
                     
 
                     <!-- Main Post Content -->
-                    <h1 id="null-과-undefined"><a href="#null-과-undefined" class="headerlink" title="null 과 undefined"></a>null 과 undefined</h1><p>null 과 undefined<br>두 타입은 모두 값이 비어있음을 나타낸다.<br>하지만 미묘한 차이가있음</p>
-<p>undefined는 값이 아예 할당되지 않은상태(hoisting에서 볼수있음)<br>따라서 변수자체에 값이 아예 할당되지 않은 상태이다</p>
-<p>null은 개발자가 명시적으로 값이 비어있음을 나타낼때 사용하는값.</p>
-<p>typeof를 사용해서 nullVar 를 비교했을때 변수 nullvar는 object가 나옴</p>
-<p><strong>예제코드</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nullVar = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> nullVartwo = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"nullVartwo\n"</span>+<span class="keyword">typeof</span> nullVartwo)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> nullVar)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> nullVar === <span class="literal">null</span>); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(nullVar === <span class="literal">null</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+                    <h1 id="최대공약수와-최소공배수"><a href="#최대공약수와-최소공배수" class="headerlink" title="최대공약수와 최소공배수"></a>최대공약수와 최소공배수</h1><p><strong>문제</strong></p>
+<p>두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환해주는 gcdlcm 함수를 완성해 보세요. 배열의 맨 앞에 최대공약수, 그 다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 gcdlcm(3,12) 가 입력되면, [3, 12]를 반환해주면 됩니다.</p>
+<p><strong>내가 푼 문제</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gcdlcm</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> gcd = <span class="number">1</span>,lcm = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="built_in">Math</span>.min(a,b); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>((a % i === <span class="number">0</span>) &amp;&amp; (b % i === <span class="number">0</span>))&#123;</span><br><span class="line">    	gcd = i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  lcm = a * b / gcd;</span><br><span class="line">  <span class="keyword">return</span> [gcd,lcm];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span></span><br><span class="line"><span class="built_in">console</span>.log(gcdlcm(<span class="number">3</span>,<span class="number">12</span>));</span><br></pre></td></tr></table></figure>
+<p><strong>다른사람이 푼 문제</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gcdlcm</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> gcd = <span class="function"><span class="keyword">function</span>(<span class="params">b, a</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> r = (b % a);</span><br><span class="line">      <span class="keyword">return</span> (r) ? gcd(a, r) : a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [gcd(b, a), ((b * a) / gcd(b, a))];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 아래는 테스트로 출력해 보기 위한 코드입니다.</span></span><br><span class="line"><span class="built_in">console</span>.log(gcdlcm(<span class="number">3</span>,<span class="number">12</span>));</span><br></pre></td></tr></table></figure>
 
                     
                     <!-- Tags Bottom -->
                     
                         <div class="tags-container-bottom">
-                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/javascript/">#javascript</a>
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/algorithm/">#algorithm</a>
                         </div>
                     
 
@@ -191,7 +191,7 @@
     <h3>Catégories</h3>
     
         <p>
-            <a href="/kimchunyong.github.io/categories/javascript/">javascript</a>
+            <a href="/kimchunyong.github.io/categories/algorithm/">algorithm</a>
         </p>
     
 </div>
