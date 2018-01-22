@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="null 과 undefined"/>
+        <meta property="og:title" content="protype 프로퍼티"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>null 과 undefined - Codeval의 프로그래밍</title>
+    <title>protype 프로퍼티 - Codeval의 프로그래밍</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -114,8 +114,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">null 과 undefined</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-13</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">protype 프로퍼티</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-22</p>
         </div>
     </div>
 
@@ -142,12 +142,9 @@
                     
 
                     <!-- Main Post Content -->
-                    <h1 id="null-과-undefined"><a href="#null-과-undefined" class="headerlink" title="null 과 undefined"></a>null 과 undefined</h1><p>null 과 undefined<br>두 타입은 모두 값이 비어있음을 나타낸다.<br>하지만 미묘한 차이가있음</p>
-<p>undefined는 값이 아예 할당되지 않은상태(hoisting에서 볼수있음)<br>따라서 변수자체에 값이 아예 할당되지 않은 상태이다</p>
-<p>null은 개발자가 명시적으로 값이 비어있음을 나타낼때 사용하는값.</p>
-<p>typeof를 사용해서 nullVar 를 비교했을때 변수 nullvar는 object가 나옴</p>
+                    <h1 id="protype-프로퍼티"><a href="#protype-프로퍼티" class="headerlink" title="protype 프로퍼티"></a>protype 프로퍼티</h1><p>모든 객체에 있는 내부프로퍼티인 <a href="__proto__">[prototype]</a>는 객체 입장에서 자신의 부모역활을하는 프로토타입 객체를 가르키는 반면<br>prototype 프로퍼티는 함수가 생성자로 사용될때 함수를 통해 생성된 객체의 부모역활을 하는 프로토타입 객체를 가르킨다.<br>함수를 생성할때 함수자신과 연결된 프로토타입 객체를 동시에 생성하며 prototype 과 consturctor 라는 프로퍼티로 서로를 참조한다.</p>
 <p><strong>예제코드</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nullVar = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> nullVartwo = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"nullVartwo\n"</span>+<span class="keyword">typeof</span> nullVartwo)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> nullVar)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> nullVar === <span class="literal">null</span>); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(nullVar === <span class="literal">null</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> joon = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jisoo = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line">Person.prototype.getType = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'인간'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(joon.getType()); <span class="comment">//인간</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(jisoo.getType()); <span class="comment">//인간</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.dir(Person);</span><br><span class="line"></span><br><span class="line">joon.getType = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'사람'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//joon의 getType()을 호출.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(joon.getType()); <span class="comment">//사람</span></span><br><span class="line"><span class="built_in">console</span>.log(jisoo.getType()); <span class="comment">//인간</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	prototpe에 getType 메소드를 가지고있고 이로인해 joon과 jisoo에 프로토타입 체인을 이용해서 값을 참조함.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">Person.age = <span class="number">25</span>; <span class="comment">//Person 객체에 값을 추가해봤다</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(joon.age); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(jisoo.age); <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.dir(Person);</span><br><span class="line"></span><br><span class="line">jisoo.age = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(joon.age); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(jisoo.age); <span class="comment">//25</span></span><br></pre></td></tr></table></figure>
 
                     
                     <!-- Tags Bottom -->
@@ -188,7 +185,7 @@
                     <!-- Widget 2: Categories -->
                     
                         <div class="mt5 tc tl-l">
-    <h3>Catégories</h3>
+    <h3>Categories</h3>
     
         <p>
             <a href="/kimchunyong.github.io/categories/javascript/">javascript</a>
@@ -202,10 +199,14 @@
 
                     <!-- Widget 3: Recent Posts -->
                     <div class="mt5 tc tl-l">
-    <h3>Récemment</h3>
+    <h3>Recent Posts</h3>
     
         <p>
-            <a href="/kimchunyong.github.io/2018/01/22/algorithm/post/">최대공약수와 최소공배수</a>
+            <a href="/kimchunyong.github.io/2018/01/22/javascript/null-과-undefined/">protype 프로퍼티</a>
+        </p>
+    
+        <p>
+            <a href="/kimchunyong.github.io/2018/01/22/algorithm/최대공약수와 최소공배수/">최대공약수와 최소공배수</a>
         </p>
     
         <p>
@@ -218,10 +219,6 @@
     
         <p>
             <a href="/kimchunyong.github.io/2018/01/17/javascript/자바스크립트 깊은복사,옅은복사/">깊은복사,옅은복사</a>
-        </p>
-    
-        <p>
-            <a href="/kimchunyong.github.io/2018/01/15/algorithm/서울에서 김서방찾기/">서울에서 김서방찾기</a>
         </p>
     
 </div>
