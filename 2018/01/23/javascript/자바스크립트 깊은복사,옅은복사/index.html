@@ -144,7 +144,7 @@
                     <!-- Main Post Content -->
                     <h1 id="arguments-객체"><a href="#arguments-객체" class="headerlink" title="arguments 객체"></a>arguments 객체</h1><p>arguments 객체는 함수를 호출할 때 넘긴 인자들이 배열 형태로 저장된 객체를 의미한다.<br>arguments는 실제 배열이 아닌 유사 배열객체다.</p>
 <p>함수를 호출할 때 넘겨진 인자 : ex) 첫 번째 인자는 0번 인덱스,두번째 인자는 1번 인덱스<br>length프로퍼티 : 호출할 때 넘겨진 인자의 개수를 의미<br>callee프로퍼티: 현재 실행 중인 함수의 참조값</p>
-<p>arguments는 객체이지 배열이 아니기때문에 배열메서드를 사용할수 없다.하지만 배열 메서드를 사용하는<br>방법이 있다. call과 apply메서드를 이용한 명시적 this바인딩으로 가능</p>
+<p>arguments는 객체이지 배열이 아니기때문에 배열메서드를 사용할수 없다.<br>하지만 배열 메서드를 사용하는방법이 있다.<br>call과 apply메서드를 이용한 명시적 this바인딩으로 가능</p>
 <h2 id="파라미터를-지정해줬을때"><a href="#파라미터를-지정해줬을때" class="headerlink" title="파라미터를 지정해줬을때"></a>파라미터를 지정해줬을때</h2><p><strong>예제코드</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.dir(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>)) <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>)) <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
 <h2 id="arguments를-이용한-예제"><a href="#arguments를-이용한-예제" class="headerlink" title="arguments를 이용한 예제"></a>arguments를 이용한 예제</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;<span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">    result += <span class="built_in">arguments</span>[i];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)) <span class="comment">//45</span></span><br></pre></td></tr></table></figure>
@@ -188,7 +188,7 @@
                     <!-- Widget 2: Categories -->
                     
                         <div class="mt5 tc tl-l">
-    <h3>Categories</h3>
+    <h3>Catégories</h3>
     
         <p>
             <a href="/kimchunyong.github.io/categories/javascript/">javascript</a>
@@ -202,7 +202,7 @@
 
                     <!-- Widget 3: Recent Posts -->
                     <div class="mt5 tc tl-l">
-    <h3>Recent Posts</h3>
+    <h3>Récemment</h3>
     
         <p>
             <a href="/kimchunyong.github.io/2018/01/23/javascript/자바스크립트 깊은복사,옅은복사/">arguments객체</a>
