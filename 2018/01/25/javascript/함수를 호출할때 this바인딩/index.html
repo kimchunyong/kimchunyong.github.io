@@ -145,6 +145,7 @@
                     <h1 id="함수를-호출할때-this-바인딩"><a href="#함수를-호출할때-this-바인딩" class="headerlink" title="함수를 호출할때 this 바인딩"></a>함수를 호출할때 this 바인딩</h1><p>전역객체란 무엇인가?<br>브라우저 - window 객체<br>node.js - global 객체</p>
 <p><strong>예제코드</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//예제 1</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'i\'m foo'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.foo);</span><br><span class="line"></span><br><span class="line"><span class="comment">//예제 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = <span class="string">'This is test'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.test);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sayFoo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.test); <span class="comment">//this는 함수를 호출할떄 window(전역객체)에 바인딩 된다.</span></span><br><span class="line">&#125;</span><br><span class="line">sayFoo();</span><br></pre></td></tr></table></figure>
+<p>내부 함수를 호출했을경우에도 this는 window객체에 바인딩 된다.</p>
 
                     
                     <!-- Tags Bottom -->
@@ -185,7 +186,7 @@
                     <!-- Widget 2: Categories -->
                     
                         <div class="mt5 tc tl-l">
-    <h3>Categories</h3>
+    <h3>Catégories</h3>
     
         <p>
             <a href="/kimchunyong.github.io/categories/javascript/">javascript</a>
@@ -199,7 +200,7 @@
 
                     <!-- Widget 3: Recent Posts -->
                     <div class="mt5 tc tl-l">
-    <h3>Recent Posts</h3>
+    <h3>Récemment</h3>
     
         <p>
             <a href="/kimchunyong.github.io/2018/01/25/javascript/함수를 호출할때 this바인딩/">함수를 호출할때 this 바인딩</a>
