@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="객체의 메서드 호출할때 this바인딩"/>
+        <meta property="og:title" content="프로퍼티에대한 이해"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>객체의 메서드 호출할때 this바인딩 - Codeval의 프로그래밍</title>
+    <title>프로퍼티에대한 이해 - Codeval의 프로그래밍</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -114,8 +114,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">객체의 메서드 호출할때 this바인딩</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-22</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">프로퍼티에대한 이해</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-27</p>
         </div>
     </div>
 
@@ -142,9 +142,10 @@
                     
 
                     <!-- Main Post Content -->
-                    <h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>myObject객체와 otherObject객체에서 sayName()을 호출시키면 호출되는 시점에서의 객체를<br>this는 자신을 호출하는 객체에 바인딩된다.</p>
+                    <h1 id="함수-프로퍼티"><a href="#함수-프로퍼티" class="headerlink" title="함수 프로퍼티"></a>함수 프로퍼티</h1><p>함수를 정의하면 메모리 상에 프로토타입 객체가 생성된다.<br>정의된 함수를 확인하면 prototype 프로퍼티가 있는데 이 프로퍼티는 프로토타입 객체에 해당된다.<br>프로토타입 객체는 자신이 다른 객체의 원형이 되는 객체이다.<br>new 연산자를 통해 정의된 함수로 객체를 생성(인스턴스화)하면, 생성된 객체는 프로토타입 객체를 가리키는 숨은 링크(pointer)를 가지게 된다.<br>숨은 링크를 통해 인스턴스 객체들이 공통의 멤버(프로퍼티, 메서드)에 접근할 수 있다. 공통의 멤버는 결국 포인터가 참조하는 프로토타입의 멤버에 해당된다.<br>프로토타입의 특성을 이용하면 자바스크립트에서 클래스를 흉내내고 상속도 구현할 수 있다.</p>
+<p>실제 코드 상에서 사용되는 프로토타입은 2가지로 구분된다.<br>(대다수가 잘못 알고 있는) prototype 프로퍼티는 커스텀 객체에서 사용되는 일반 프로퍼티와는 다르다. 생성자 함수가 선언될 때 constructor 프로퍼티로 생성자 함수를 참조하면서 새로 생성되는 객체이다.<br>생성자 함수에 의해 인스턴스화된 객체들은 prototype을 참조하는 포인터가 생성되며 [[Prototype]]이라고 부른다. FF, Safari, Chrome에서는 <strong>proto</strong> 프로퍼티를 지원하며 브라우저 상에서 직접 프로퍼티의 접근이 가능하다.<br>즉 [[Prototype]]은 prototype을 참조하는 것이지, 생성자 함수를 직접적으로 참조하는 것이 아니다.</p>
 <p><strong>예제코드</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">  name:<span class="string">'foo'</span>,</span><br><span class="line">  sayName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> otherObject = &#123;</span><br><span class="line">  name:<span class="string">'bar'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">otherObject.sayName = myObject.sayName;</span><br><span class="line"></span><br><span class="line">myObject.sayName(); <span class="comment">//foo</span></span><br><span class="line">otherObject.sayName(); <span class="comment">//bar</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">'tom'</span>; <span class="comment">// 프로퍼티</span></span><br><span class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 메서드</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> developer = <span class="keyword">new</span> Person(),</span><br><span class="line">    designer = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(developer <span class="keyword">instanceof</span> Person); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(designer <span class="keyword">instanceof</span> Person); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(developer.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(developer.hasOwnProperty(<span class="string">'getName'</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.hasOwnProperty(<span class="string">'getName'</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">developer.name = <span class="string">'jerry'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(developer.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(designer.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(developer.getName()); <span class="comment">//jerry</span></span><br><span class="line"><span class="built_in">console</span>.log(designer.getName()); <span class="comment">///tom</span></span><br></pre></td></tr></table></figure>
 
                     
                     <!-- Tags Bottom -->
