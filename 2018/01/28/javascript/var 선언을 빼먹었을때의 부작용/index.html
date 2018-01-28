@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="평균구하기"/>
+        <meta property="og:title" content="var 선언을 빼먹었을때의 부작용?"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>평균구하기 - Codeval의 프로그래밍</title>
+    <title>var 선언을 빼먹었을때의 부작용? - Codeval의 프로그래밍</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -114,8 +114,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">평균구하기</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-12</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">var 선언을 빼먹었을때의 부작용?</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-01-28</p>
         </div>
     </div>
 
@@ -136,25 +136,22 @@
                     
                         <div class="tags-container-vertical">
                             <div class="tags-sub-container">
-                                <a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/algorithm/">#algorithm</a>
+                                <a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/javascript/">#javascript</a>
                             </div>
                         </div>
                     
 
                     <!-- Main Post Content -->
-                    <h1 id="평균구하기"><a href="#평균구하기" class="headerlink" title="평균구하기"></a>평균구하기</h1><p><strong>문제</strong></p>
-<p>함수를 완성해서 매개변수 array의 평균값을 return하도록 만들어 보세요.<br>어떠한 크기의 array가 와도 평균값을 구할 수 있어야 합니다.</p>
-<p><strong>내가 푼 문제</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">    sum += array[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum / array.length;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> testArray = [<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"평균값 : "</span> + average(testArray));</span><br></pre></td></tr></table></figure>
-<p><strong>다른사람이 푼 문제</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> array.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b) / array.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>다른사람의 문제를 보니 reduce함수와 es6에서 화살표 함수를 사용해서 문제를 풀었다.</p>
+                    <h1 id="var-선언을-빼먹었을때의-부작용"><a href="#var-선언을-빼먹었을때의-부작용" class="headerlink" title="var 선언을 빼먹었을때의 부작용?"></a>var 선언을 빼먹었을때의 부작용?</h1><p>자바스크립트패턴<br>var를 사용하여 명시적으로 선언된 전역 변수는 삭제할 수 없다.<br>var를 사용하지 않고 생성한 암묵적 전역변수는 삭제할수 있다.</p>
+<p>암묵적 변수는 전역 객체의 프로퍼티라는 사실을 보여준다. 프로퍼티는 delete로 삭제가능</p>
+<p><strong>예제코드</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> global_var = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">global_novar = <span class="number">2</span>; <span class="comment">//안티패턴</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	global_fromfunc = <span class="number">3</span>; <span class="comment">//안티패턴</span></span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> global_fromfunc2 = <span class="number">4</span>;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> global_var; <span class="comment">//false</span></span><br><span class="line"><span class="keyword">delete</span> global_novar; <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> global_fromfunc; <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> global_fromfunc2; <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> global_var); <span class="comment">//'number'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> global_novar); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> global_fromfunc); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> global_fromfunc2); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
 
                     
                     <!-- Tags Bottom -->
                     
                         <div class="tags-container-bottom">
-                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/algorithm/">#algorithm</a>
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/kimchunyong.github.io/tags/javascript/">#javascript</a>
                         </div>
                     
 
@@ -192,7 +189,7 @@
     <h3>Categories</h3>
     
         <p>
-            <a href="/kimchunyong.github.io/categories/algorithm/">algorithm</a>
+            <a href="/kimchunyong.github.io/categories/javascript/">javascript</a>
         </p>
     
 </div>
